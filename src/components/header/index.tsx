@@ -1,6 +1,7 @@
 import { GitHubLogoIcon, LinkedInLogoIcon } from '@radix-ui/react-icons'
 import Link from 'next/link'
 import Menu from '../menu'
+import { ModeToggle } from '../mode-toggle'
 
 const Header = () => {
   return (
@@ -12,7 +13,9 @@ const Header = () => {
         {/* decorator */}
       </div>
       <nav className="flex justify-between">
-        <div>{/* Button Theme */}</div>
+        <div className="pl-8">
+          <ModeToggle />
+        </div>
         <div className="flex">
           <Link href="#" className="block py-2 pl-2 pr-[10px]">
             <LinkedInLogoIcon width={20} height={20} />

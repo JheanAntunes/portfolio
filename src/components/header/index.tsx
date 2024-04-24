@@ -9,9 +9,7 @@ const Header = () => {
       <div>
         <span>JheanAntunesLopes@gmail.com</span>
       </div>
-      <div className="h-full bg-neutral-500 dark:bg-neutral-50">
-        {/* decorator */}
-      </div>
+      <div className="h-full bg-neutral-500">{/* decorator */}</div>
       <nav className="flex justify-between">
         <div className="pl-8">
           <ModeToggle />

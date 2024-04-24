@@ -41,7 +41,7 @@ const Menu = () => {
             })}
           >
             <span className="sr-only">Abrir Menu</span>
-            <HamburgerMenuIcon className="text-neutral-950" />
+            <HamburgerMenuIcon className="text-neutral-500 dark:text-neutral-100" />
           </div>
         )}
       </Button>

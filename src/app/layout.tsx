@@ -1,5 +1,7 @@
+import { dataLinksFloatingNavbar } from '@/components/constants/data-links'
 import Header from '@/components/header'
 import { ThemeProvider } from '@/components/providers/theme-provider'
+import { FloatingNav } from '@/components/ui/floating-navbar'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import '../styles/globals.css'
@@ -26,6 +28,7 @@ export default function RootLayout({
         >
           <Header />
           {children}
+          <FloatingNav navItems={dataLinksFloatingNavbar} />
         </ThemeProvider>
       </body>
     </html>

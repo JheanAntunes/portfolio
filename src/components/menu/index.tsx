@@ -1,14 +1,16 @@
 'use client'
+import useStoreMenu from '@/hooks/stores/use-store-menu'
 import { MotionDiv } from '@/lib/framer-motion-components'
 import { Cross2Icon, HamburgerMenuIcon } from '@radix-ui/react-icons'
 import { AnimatePresence } from 'framer-motion'
-import { useState } from 'react'
 import { Button, buttonVariants } from '../ui/button'
 import NavMenu from './nav-menu'
 const Menu = () => {
-  const [isMenu, setIsMenu] = useState(false)
+  // const [isMenu, setIsMenu] = useState(false)
+  const stateIsMenu = useStoreMenu((state) => state.isMenu)
+  const setStateIsMenu = useStoreMenu((state) => state.setIsMenu)
   const handleToggleMenu = () => {
-    setIsMenu((prevStateMenu) => !prevStateMenu)
+    setStateIsMenu(!stateIsMenu)
   }
   return (
     <div>
@@ -16,9 +18,9 @@ const Menu = () => {
         size="icon"
         onClick={handleToggleMenu}
         className="border-none bg-transparent shadow-none hover:bg-transparent"
-        aria-expanded={isMenu}
+        aria-expanded={stateIsMenu}
       >
-        {isMenu ? (
+        {stateIsMenu ? (
           <MotionDiv
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -45,7 +47,9 @@ const Menu = () => {
           </div>
         )}
       </Button>
-      <AnimatePresence mode="wait">{isMenu && <NavMenu />}</AnimatePresence>
+      <AnimatePresence mode="wait">
+        {stateIsMenu && <NavMenu />}
+      </AnimatePresence>
     </div>
   )
 }

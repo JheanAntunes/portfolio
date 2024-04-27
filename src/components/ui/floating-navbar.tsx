@@ -1,4 +1,5 @@
 'use client'
+import useStoreMenu from '@/hooks/stores/use-store-menu'
 import { cn } from '@/lib/utils'
 import {
   AnimatePresence,
@@ -9,7 +10,6 @@ import {
 import Link from 'next/link'
 import { useState } from 'react'
 import { DataLink } from '../constants/data-links'
-import Menu from '../menu'
 import { ModeToggle } from '../mode-toggle'
 
 type FloatingNavProps = {
@@ -19,25 +19,22 @@ type FloatingNavProps = {
 
 export const FloatingNav = ({ navItems, className }: FloatingNavProps) => {
   const { scrollYProgress } = useScroll()
-
+  const setStateIsMenu = useStoreMenu((state) => state.setIsMenu)
+  const stateIsMenu = useStoreMenu((state) => state.isMenu)
+  const handleClickMenu = () => {
+    setStateIsMenu(!stateIsMenu)
+  }
   const [visible, setVisible] = useState(false)
 
   useMotionValueEvent(scrollYProgress, 'change', () => {
-    scrollYProgress.get() < 0.1 ? setVisible(false) : setVisible(true)
-    // Check if current is not undefined and is a number
-    // if (typeof current === 'number') {
-    //   const direction = current! - scrollYProgress.getPrevious()!
-    //   if (scrollYProgress.get() < 0.5) {
-    //     setVisible(false)
-    //   } else {
-    //     setVisible(true)
-    //     // if (direction < 0) {
-    //     //   setVisible(true)
-    //     // } else {
-    //     //   setVisible(false)
-    //     // }
-    //   }
-    // }
+    if (scrollYProgress.get() < 0.1) {
+      if (visible && stateIsMenu) {
+        setStateIsMenu(false)
+      }
+      setVisible(false)
+      return //break function
+    }
+    setVisible(true)
   })
 
   return (
@@ -71,11 +68,15 @@ export const FloatingNav = ({ navItems, className }: FloatingNavProps) => {
             <span className="hidden text-sm sm:block">{navItem.label}</span>
           </Link>
         ))}
-        {/* <button className="relative rounded-full border border-neutral-200 px-4 py-2 text-sm font-medium text-black dark:border-white/[0.2] dark:text-white">
+        <button
+          className="relative rounded-full border border-neutral-200 px-4 py-2 text-sm font-medium text-black dark:border-white/[0.2] dark:text-white"
+          onClick={handleClickMenu}
+          aria-expanded={stateIsMenu}
+        >
           <span>Menu</span>
           <span className="absolute inset-x-0 -bottom-px mx-auto h-px w-1/2 bg-gradient-to-r from-transparent via-blue-500  to-transparent" />
-        </button> */}
-        <Menu />
+        </button>
+
         <ModeToggle />
       </motion.div>
     </AnimatePresence>

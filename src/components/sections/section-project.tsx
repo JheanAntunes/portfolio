@@ -1,4 +1,5 @@
 'use client'
+import useMediaQuery from '@/hooks/use-media-query'
 import { MotionDiv } from '@/lib/framer-motion-components'
 import { useScroll, useTransform } from 'framer-motion'
 import Image from 'next/image'
@@ -9,6 +10,8 @@ import { buttonVariants } from '../ui/button'
 
 const SectionProject = () => {
   const targetRef = useRef<HTMLDivElement>(null)
+  const mediaMatches = useMediaQuery('(min-width: 768px)')
+  console.log('mediaQuery: ', mediaMatches)
   const { scrollYProgress } = useScroll({
     target: targetRef
   })
@@ -18,7 +21,7 @@ const SectionProject = () => {
     <section ref={targetRef} className="container md:relative md:h-[300svh]">
       <div className="md:sticky md:inset-0 md:flex md:h-svh md:items-center md:overflow-hidden">
         <MotionDiv
-          style={{ x, y: '-40px' }}
+          style={mediaMatches ? { x, y: '-40px' } : {}}
           className="flex flex-col gap-8 md:flex-row"
         >
           {dataProjects.map(

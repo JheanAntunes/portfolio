@@ -5,11 +5,16 @@ import { ModeToggle } from '../mode-toggle'
 
 const Header = () => {
   return (
-    <header className="container grid h-14 grid-cols-[1fr_1px_1fr] items-center border-b border-b-neutral-500">
-      <div>
-        <span>JheanAntunesLopes@gmail.com</span>
+    <header className="container flex h-14 grid-cols-1 items-center justify-between border-b border-b-neutral-500 sm:grid sm:grid-cols-[1fr_1px_1fr] sm:justify-start">
+      <div className="">
+        <span className="sm:hidden">Jhean</span>
+        <span className="hidden text-base sm:block">
+          JheanAntunesLopes@gmail.com
+        </span>
       </div>
-      <div className="h-full bg-neutral-500">{/* decorator */}</div>
+      <div className="hidden h-full bg-neutral-500 sm:block">
+        {/* decorator */}
+      </div>
       <nav className="flex justify-between">
         <div className="pl-8">
           <ModeToggle />

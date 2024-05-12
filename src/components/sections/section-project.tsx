@@ -11,14 +11,13 @@ import { buttonVariants } from '../ui/button'
 const SectionProject = () => {
   const targetRef = useRef<HTMLDivElement>(null)
   const mediaMatches = useMediaQuery('(min-width: 768px)')
-  console.log('mediaQuery: ', mediaMatches)
   const { scrollYProgress } = useScroll({
     target: targetRef
   })
 
   const x = useTransform(scrollYProgress, [0, 1], ['1%', '-95%'])
   return (
-    <section ref={targetRef} className="container md:relative md:h-[300svh]">
+    <section ref={targetRef} className="sm:container md:relative md:h-[300svh]">
       <div className="md:sticky md:inset-0 md:flex md:h-svh md:items-center md:overflow-hidden">
         <MotionDiv
           style={mediaMatches ? { x, y: '-40px' } : {}}
@@ -28,7 +27,7 @@ const SectionProject = () => {
             ({ image, title, description, linkToGithub, linkToProject }) => (
               <div
                 key={title}
-                className="flex-shrink-0 space-y-5 rounded-xl border border-solid border-neutral-500 md:h-[460px] md:w-[450px]"
+                className="h-fit flex-shrink-0 space-y-5 rounded-xl border border-solid border-neutral-500 md:h-[460px] md:w-[450px]"
               >
                 {/* Card */}
                 <div className="relative m-5 h-52 overflow-hidden rounded-xl">
@@ -40,7 +39,7 @@ const SectionProject = () => {
                     sizes="100vh"
                   />
                 </div>
-                <div className="flex h-52 flex-col justify-between gap-5 overflow-hidden px-5 pb-5">
+                <div className="flex h-fit flex-col justify-between gap-5 overflow-hidden px-5 pb-5 sm:h-52">
                   <div>
                     <h2 className="text-2xl">{title}</h2>
                     <p className="text-base">{description}</p>

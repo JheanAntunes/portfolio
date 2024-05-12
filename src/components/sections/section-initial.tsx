@@ -4,10 +4,10 @@ const SectionInitial = () => {
   return (
     <div className="h-[calc(100svh_-_56px)] w-full">
       <HeroHighlight>
-        <section>
+        <section className="container">
           <h1>
             <span>Olá, eu sou</span>
-            <div className="text-2xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl">
+            <div className="text-xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl">
               Desenvolvedor - Front end
             </div>
           </h1>

@@ -2,6 +2,7 @@ import { dataLinksFloatingNavbar } from '@/components/constants/data-links'
 import Header from '@/components/header'
 import { ThemeProvider } from '@/components/providers/theme-provider'
 import { FloatingNav } from '@/components/ui/floating-navbar'
+import SmoothScrolling from '@/lib/SmoothScrolling'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import '../styles/globals.css'
@@ -20,16 +21,18 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" suppressHydrationWarning>
       <body className={inter.className}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <Header />
-          {children}
-          <FloatingNav navItems={dataLinksFloatingNavbar} />
-        </ThemeProvider>
+        <SmoothScrolling>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <Header />
+            {children}
+            <FloatingNav navItems={dataLinksFloatingNavbar} />
+          </ThemeProvider>
+        </SmoothScrolling>
       </body>
     </html>
   )

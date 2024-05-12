@@ -1,7 +1,10 @@
+import { dataLinksFloatingNavbar } from '@/components/constants/data-links'
+import Header from '@/components/header'
+import { ThemeProvider } from '@/components/providers/theme-provider'
+import { FloatingNav } from '@/components/ui/floating-navbar'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import '../styles/globals.css'
-
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
@@ -15,8 +18,19 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="pt-BR">
-      <body className={inter.className}>{children}</body>
+    <html lang="pt-BR" suppressHydrationWarning>
+      <body className={inter.className}>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <Header />
+          {children}
+          <FloatingNav navItems={dataLinksFloatingNavbar} />
+        </ThemeProvider>
+      </body>
     </html>
   )
 }

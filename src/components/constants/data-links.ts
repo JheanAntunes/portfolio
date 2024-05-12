@@ -6,7 +6,7 @@ export type DataLink = {
 
 export const dataLinks: DataLink[] = [
   { href: '#', label: 'Projetos' },
-  { href: '#', label: 'Sobre' }
+  { href: '#', label: 'Trajetória' }
 ]
 
 export const dataLinksFloatingNavbar: DataLink[] = [

@@ -1,4 +1,5 @@
 import { dataLinksFloatingNavbar } from '@/components/constants/data-links'
+import CustomCursor from '@/components/custom-cursor'
 import Header from '@/components/header'
 import { ThemeProvider } from '@/components/providers/theme-provider'
 import { FloatingNav } from '@/components/ui/floating-navbar'
@@ -31,6 +32,7 @@ export default function RootLayout({
             <Header />
             {children}
             <FloatingNav navItems={dataLinksFloatingNavbar} />
+            <CustomCursor />
           </ThemeProvider>
         </SmoothScrolling>
       </body>

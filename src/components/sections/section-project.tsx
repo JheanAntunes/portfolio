@@ -17,7 +17,11 @@ const SectionProject = () => {
 
   const x = useTransform(scrollYProgress, [0, 1], ['1%', '-95%'])
   return (
-    <section ref={targetRef} className="sm:container md:relative md:h-[300svh]">
+    <section
+      id="projects"
+      ref={targetRef}
+      className="sm:container md:relative md:h-[300svh]"
+    >
       <div className="md:sticky md:inset-0 md:flex md:h-svh md:items-center md:overflow-hidden">
         <MotionDiv
           style={mediaMatches ? { x, y: '-40px' } : {}}

@@ -1,6 +1,7 @@
 'use client'
 import useStoreMenu from '@/hooks/stores/use-store-menu'
 import { cn } from '@/lib/utils'
+import { useLenis } from '@studio-freight/react-lenis'
 import {
   AnimatePresence,
   motion,
@@ -20,6 +21,7 @@ type FloatingNavProps = {
 
 export const FloatingNav = ({ navItems, className }: FloatingNavProps) => {
   const { scrollYProgress } = useScroll()
+  const hookLenis = useLenis()
   const setStateIsMenu = useStoreMenu((state) => state.setIsMenu)
   const stateIsMenu = useStoreMenu((state) => state.isMenu)
   const handleClickMenu = () => {
@@ -60,6 +62,10 @@ export const FloatingNav = ({ navItems, className }: FloatingNavProps) => {
         {navItems.map((navItem, idx: number) => (
           <Link
             key={`link=${idx}`}
+            onClick={(e) => {
+              e.preventDefault()
+              hookLenis?.scrollTo(navItem.href)
+            }}
             href={navItem.href}
             className={cn(
               'relative hidden items-center space-x-1 text-neutral-600 hover:text-neutral-500 dark:text-neutral-50 dark:hover:text-neutral-300 sm:flex'

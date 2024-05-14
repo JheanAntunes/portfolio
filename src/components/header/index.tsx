@@ -5,7 +5,10 @@ import { ModeToggle } from '../mode-toggle'
 
 const Header = () => {
   return (
-    <header className="container flex h-14 grid-cols-1 items-center justify-between border-b border-b-neutral-500 sm:grid sm:grid-cols-[1fr_1px_1fr] sm:justify-start">
+    <header
+      id="im"
+      className="container flex h-14 grid-cols-1 items-center justify-between border-b border-b-neutral-500 sm:grid sm:grid-cols-[1fr_1px_1fr] sm:justify-start"
+    >
       <div className="">
         <span className="sm:hidden">Jhean</span>
         <span className="hidden text-base sm:block">

@@ -9,7 +9,10 @@ const CardTrajectorydDescription = ({ children }: React.PropsWithChildren) => (
 )
 const SectionTrajectory = () => {
   return (
-    <section className="container mt-20 space-y-8 pb-20 md:mt-0">
+    <section
+      id="trajectory"
+      className="container mt-20 space-y-8 pb-20 md:mt-0"
+    >
       <div className="space-y-2">
         <h2 className="text-3xl sm:text-4xl md:text-center md:text-5xl lg:text-6xl">
           Trajetoria

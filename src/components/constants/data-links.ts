@@ -5,11 +5,11 @@ export type DataLink = {
 }
 
 export const dataLinks: DataLink[] = [
-  { href: '#', label: 'Projetos' },
-  { href: '#', label: 'Trajetória' }
+  { href: '#projects', label: 'Projetos' },
+  { href: '#trajectory', label: 'Trajetória' }
 ]
 
 export const dataLinksFloatingNavbar: DataLink[] = [
-  { href: '#', label: 'Eu' },
+  { href: '#im', label: 'Eu' },
   ...dataLinks
 ]

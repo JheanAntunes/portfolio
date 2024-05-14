@@ -10,8 +10,15 @@ const useMediaQuery = (mediaQueryString: string) => {
   const [matches, setMaches] = useState(false)
 
   useEffect(() => {
+    const handleResize = () => {
+      setMaches(window.matchMedia(mediaQueryString).matches)
+    }
+    window.addEventListener('resize', handleResize)
+  }, [mediaQueryString])
+
+  useEffect(() => {
     setMaches(window.matchMedia(mediaQueryString).matches)
-  }, [setMaches, mediaQueryString])
+  }, [mediaQueryString])
 
   return matches
 }

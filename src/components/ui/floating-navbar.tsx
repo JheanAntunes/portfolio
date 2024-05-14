@@ -64,6 +64,7 @@ export const FloatingNav = ({ navItems, className }: FloatingNavProps) => {
             key={`link=${idx}`}
             onClick={(e) => {
               e.preventDefault()
+              setStateIsMenu(false)
               hookLenis?.scrollTo(navItem.href)
             }}
             href={navItem.href}
@@ -77,7 +78,7 @@ export const FloatingNav = ({ navItems, className }: FloatingNavProps) => {
         ))}
         <div className="flex items-center justify-center gap-3">
           <Button
-            className="relative !ml-0 rounded-full border border-neutral-200 bg-background px-4 py-2 text-sm font-medium text-black dark:border-white/[0.2] dark:bg-background dark:text-white"
+            className="relative !ml-0 rounded-full border border-neutral-200 bg-background px-4 py-2 text-sm font-medium text-black hover:bg-background dark:border-white/[0.2] dark:bg-background dark:text-white"
             onClick={handleClickMenu}
             aria-expanded={stateIsMenu}
           >

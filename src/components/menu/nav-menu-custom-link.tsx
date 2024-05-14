@@ -1,3 +1,4 @@
+import useStoreMenu from '@/hooks/stores/use-store-menu'
 import { MotionDiv } from '@/lib/framer-motion-components'
 import { useLenis } from '@studio-freight/react-lenis'
 import Link from 'next/link'
@@ -11,7 +12,7 @@ type Props = {
 export default function NavMenuCustomLink({ dataLink }: Props) {
   const lenis = useLenis()
   const { label, href, index } = dataLink
-
+  const setStateIsMenu = useStoreMenu((state) => state.setIsMenu)
   return (
     <MotionDiv
       custom={index}
@@ -23,6 +24,7 @@ export default function NavMenuCustomLink({ dataLink }: Props) {
       <Link
         onClick={(e) => {
           e.preventDefault()
+          setStateIsMenu(false)
           lenis?.scrollTo(href)
         }}
         href={href}

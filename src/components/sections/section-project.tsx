@@ -31,7 +31,7 @@ const SectionProject = () => {
             ({ image, title, description, linkToGithub, linkToProject }) => (
               <div
                 key={title}
-                className="h-fit flex-shrink-0 space-y-5 rounded-xl border border-solid border-neutral-500 md:h-[460px] md:w-[450px]"
+                className="h-fit flex-shrink-0 space-y-5 rounded-xl border-none sm:border sm:border-solid sm:border-neutral-500 md:h-[460px] md:w-[450px]"
               >
                 {/* Card */}
                 <div className="relative m-5 h-52 overflow-hidden rounded-xl">

@@ -32,7 +32,7 @@ export const dataProjects: DataProject[] = [
     linkToGithub: 'https://github.com/JheanAntunes/storybook-shadcn'
   },
   {
-    title: 'Zustand: Refatoração e Inovação',
+    title: 'Zustand: Refatoração',
     description:
       'Projeto Zustand, enfrentei o desafio de refatorar o componente "mails" do Shadcn-ui, substituindo a biblioteca Jotai pelo Zustand.',
     image: ImgZustand,

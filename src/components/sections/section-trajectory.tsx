@@ -1,7 +1,7 @@
 import { Separator } from '../ui/separator'
 
 const CardTrajectoryTitle = ({ children }: React.PropsWithChildren) => (
-  <h3 className="text-2xl sm:text-center sm:text-3xl">{children}</h3>
+  <h3 className="font-serif text-2xl sm:text-center sm:text-3xl">{children}</h3>
 )
 
 const CardTrajectorydDescription = ({ children }: React.PropsWithChildren) => (
@@ -14,7 +14,7 @@ const SectionTrajectory = () => {
       className="container mt-20 space-y-8 pb-20 md:mt-0"
     >
       <div className="space-y-2">
-        <h2 className="text-3xl sm:text-4xl md:text-center md:text-5xl lg:text-6xl">
+        <h2 className="font-serif text-3xl sm:text-4xl md:text-center md:text-5xl lg:text-6xl">
           Trajetoria
         </h2>
         <p className="md:text-center">

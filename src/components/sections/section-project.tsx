@@ -31,7 +31,7 @@ const SectionProject = () => {
             ({ image, title, description, linkToGithub, linkToProject }) => (
               <div
                 key={title}
-                className="h-fit flex-shrink-0 space-y-5 rounded-xl border-none sm:border sm:border-solid sm:border-neutral-500 md:h-[460px] md:w-[450px]"
+                className="h-fit flex-shrink-0 space-y-5 rounded-xl border-none sm:border sm:border-solid sm:border-neutral-500 md:h-fit md:w-[450px]"
               >
                 {/* Card */}
                 <div className="relative m-5 h-52 overflow-hidden rounded-xl">
@@ -44,9 +44,9 @@ const SectionProject = () => {
                   />
                 </div>
                 <div className="flex h-fit flex-col justify-between gap-5 overflow-hidden px-5 pb-5 sm:h-52">
-                  <div>
-                    <h2 className="text-2xl">{title}</h2>
-                    <p className="text-base">{description}</p>
+                  <div className="space-y-1">
+                    <h2 className="font-serif text-2xl xl:text-3xl">{title}</h2>
+                    <p className="font-sans text-base">{description}</p>
                   </div>
                   <div className="flex gap-5">
                     <Link

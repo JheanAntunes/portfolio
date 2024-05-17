@@ -76,7 +76,7 @@ export const FloatingNav = ({ navItems, className }: FloatingNavProps) => {
             <span className="hidden text-sm sm:block">{navItem.label}</span>
           </Link>
         ))}
-        <div className="flex items-center justify-center gap-3">
+        <div className="!m-0 flex items-center justify-center gap-3 sm:!ml-3">
           <Button
             className="relative !ml-0 rounded-full border border-neutral-200 bg-background px-4 py-2 text-sm font-medium text-black hover:bg-background dark:border-white/[0.2] dark:bg-background dark:text-white"
             onClick={handleClickMenu}

@@ -1,4 +1,5 @@
 'use client'
+import { useStoreHoveredCursor } from '@/hooks/stores/use-store-hovered-cursor'
 import useMediaQuery from '@/hooks/use-media-query'
 import { MotionDiv } from '@/lib/framer-motion-components'
 import { useScroll, useTransform } from 'framer-motion'
@@ -9,6 +10,9 @@ import { dataProjects } from '../constants/data-projects'
 import { buttonVariants } from '../ui/button'
 
 const SectionProject = () => {
+  const setIsHoveredCursor = useStoreHoveredCursor(
+    (state) => state.setIsHoveredCursor
+  )
   const targetRef = useRef<HTMLDivElement>(null)
   const mediaMatches = useMediaQuery('(min-width: 768px)')
   const { scrollYProgress } = useScroll({
@@ -56,6 +60,12 @@ const SectionProject = () => {
                       className={buttonVariants({
                         className: 'flex-grow uppercase'
                       })}
+                      onMouseOver={() => {
+                        setIsHoveredCursor(true)
+                      }}
+                      onMouseLeave={() => {
+                        setIsHoveredCursor(false)
+                      }}
                     >
                       Projeto
                     </Link>
@@ -64,6 +74,12 @@ const SectionProject = () => {
                       referrerPolicy="no-referrer"
                       href={linkToGithub}
                       className={buttonVariants({ variant: 'secondary' })}
+                      onMouseOver={() => {
+                        setIsHoveredCursor(true)
+                      }}
+                      onMouseLeave={() => {
+                        setIsHoveredCursor(false)
+                      }}
                     >
                       Código
                     </Link>

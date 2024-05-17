@@ -1,4 +1,5 @@
 'use client'
+import { useStoreHoveredCursor } from '@/hooks/stores/use-store-hovered-cursor'
 import useStoreMenu from '@/hooks/stores/use-store-menu'
 import { cn } from '@/lib/utils'
 import { useLenis } from '@studio-freight/react-lenis'
@@ -23,6 +24,9 @@ export const FloatingNav = ({ navItems, className }: FloatingNavProps) => {
   const { scrollYProgress } = useScroll()
   const hookLenis = useLenis()
   const setStateIsMenu = useStoreMenu((state) => state.setIsMenu)
+  const setIsHoveredCursor = useStoreHoveredCursor(
+    (state) => state.setIsHoveredCursor
+  )
   const stateIsMenu = useStoreMenu((state) => state.isMenu)
   const handleClickMenu = () => {
     setStateIsMenu(!stateIsMenu)
@@ -58,6 +62,12 @@ export const FloatingNav = ({ navItems, className }: FloatingNavProps) => {
           'fixed inset-x-0 bottom-5 z-[5000] mx-auto flex max-w-fit items-center justify-center gap-0 space-x-4 rounded-full border border-transparent bg-white px-5 py-2 shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] dark:border-white/[0.2] dark:bg-black',
           className
         )}
+        onMouseOver={() => {
+          setIsHoveredCursor(true)
+        }}
+        onMouseLeave={() => {
+          setIsHoveredCursor(false)
+        }}
       >
         {navItems.map((navItem, idx: number) => (
           <Link
@@ -69,7 +79,7 @@ export const FloatingNav = ({ navItems, className }: FloatingNavProps) => {
             }}
             href={navItem.href}
             className={cn(
-              'relative hidden items-center space-x-1 text-neutral-600 hover:text-neutral-500 dark:text-neutral-50 dark:hover:text-neutral-300 sm:flex'
+              'relative hidden items-center space-x-1 text-neutral-800 hover:text-neutral-800 dark:text-neutral-50 dark:hover:text-neutral-300 sm:flex'
             )}
           >
             <span className="block sm:hidden">{navItem.icon}</span>

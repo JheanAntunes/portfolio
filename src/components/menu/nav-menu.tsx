@@ -1,4 +1,5 @@
 'use client'
+import { useStoreHoveredCursor } from '@/hooks/stores/use-store-hovered-cursor'
 import { MotionDiv } from '@/lib/framer-motion-components'
 import Link from 'next/link'
 import { dataLinks } from '../constants/data-links'
@@ -7,6 +8,9 @@ import NavMenuCustomLink from './nav-menu-custom-link'
 import SvgCurved from './svg-curved'
 
 const NavMenu = () => {
+  const setIsHoveredCursor = useStoreHoveredCursor(
+    (state) => state.setIsHoveredCursor
+  )
   return (
     <MotionDiv
       initial="initial"
@@ -15,7 +19,15 @@ const NavMenu = () => {
       variants={menuSlide}
       className="fixed right-0 top-0 z-10 h-svh bg-neutral-900 text-neutral-50"
     >
-      <div className="relative flex h-full w-80 flex-col gap-8 md:w-[420px]">
+      <div
+        className="relative z-50 flex h-full w-80 flex-col gap-8 md:w-[420px]"
+        onMouseOver={() => {
+          setIsHoveredCursor(true)
+        }}
+        onMouseLeave={() => {
+          setIsHoveredCursor(false)
+        }}
+      >
         <div className="mt-8 flex flex-col items-center gap-5 text-6xl">
           <div className="border-b border-b-neutral-500 text-xs uppercase">
             <p className="">Menu</p>
@@ -32,8 +44,8 @@ const NavMenu = () => {
           <Link href="#">Github</Link>
           <Link href="#">LinkedIn</Link>
         </div>
-        <SvgCurved />
       </div>
+      <SvgCurved />
     </MotionDiv>
   )
 }

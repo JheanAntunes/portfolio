@@ -1,4 +1,5 @@
 'use client'
+import { useStoreHoveredCursor } from '@/hooks/stores/use-store-hovered-cursor'
 import useStoreMenu from '@/hooks/stores/use-store-menu'
 import { MotionDiv } from '@/lib/framer-motion-components'
 import { Cross2Icon, HamburgerMenuIcon } from '@radix-ui/react-icons'
@@ -9,12 +10,22 @@ const Menu = () => {
   // const [isMenu, setIsMenu] = useState(false)
   const stateIsMenu = useStoreMenu((state) => state.isMenu)
   const setStateIsMenu = useStoreMenu((state) => state.setIsMenu)
+  const setIsHoveredCursor = useStoreHoveredCursor(
+    (state) => state.setIsHoveredCursor
+  )
   const handleToggleMenu = () => {
     setStateIsMenu(!stateIsMenu)
   }
+
   return (
     <div>
       <Button
+        onMouseOver={() => {
+          setIsHoveredCursor(true)
+        }}
+        onMouseLeave={() => {
+          setIsHoveredCursor(false)
+        }}
         size="icon"
         onClick={handleToggleMenu}
         className="border-none bg-transparent shadow-none hover:bg-transparent"

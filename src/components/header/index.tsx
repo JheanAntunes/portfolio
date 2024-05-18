@@ -23,10 +23,16 @@ const Header = () => {
           <ModeToggle />
         </div>
         <div className="flex">
-          <Link href="#" className="block py-2 pl-2 pr-[10px]">
+          <Link
+            href="https://www.linkedin.com/in/jhean-antunes-lopes/"
+            className="block py-2 pl-2 pr-[10px]"
+          >
             <LinkedInLogoIcon width={20} height={20} />
           </Link>
-          <Link href="#" className="block py-2 pl-[10px] pr-2">
+          <Link
+            href="https://github.com/JheanAntunes"
+            className="block py-2 pl-[10px] pr-2"
+          >
             <GitHubLogoIcon width={20} height={20} />
           </Link>
         </div>

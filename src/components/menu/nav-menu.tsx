@@ -41,8 +41,10 @@ const NavMenu = () => {
         </div>
 
         <div className="flex w-full items-center justify-center gap-10 text-xs">
-          <Link href="#">Github</Link>
-          <Link href="#">LinkedIn</Link>
+          <Link href="https://github.com/JheanAntunes">Github</Link>
+          <Link href="https://www.linkedin.com/in/jhean-antunes-lopes/">
+            LinkedIn
+          </Link>
         </div>
       </div>
       <SvgCurved />

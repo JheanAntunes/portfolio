@@ -9,10 +9,13 @@ const Header = () => {
       id="im"
       className="container flex h-14 grid-cols-1 items-center justify-between border-b border-b-neutral-500 sm:grid sm:grid-cols-[1fr_1px_1fr] sm:justify-start"
     >
-      <div className="">
-        <span className="sm:hidden">Jhean</span>
-        <span className="hidden text-base sm:block">
+      <div className="flex justify-between">
+        <span className="text-sm sm:hidden">(21) 96829-4324</span>
+        <span className="hidden text-base lg:block">
           JheanAntunesLopes@gmail.com
+        </span>
+        <span className="hidden text-base sm:block sm:pr-8">
+          (21) 96829-4324
         </span>
       </div>
       <div className="hidden h-full bg-neutral-500 sm:block">

@@ -8,6 +8,7 @@ import Link from 'next/link'
 import { useRef } from 'react'
 import { dataProjects } from '../constants/data-projects'
 import { buttonVariants } from '../ui/button'
+import { GridBackground } from '../ui/grid-background'
 
 const SectionProject = () => {
   const setIsHoveredCursor = useStoreHoveredCursor(
@@ -24,71 +25,78 @@ const SectionProject = () => {
     <section
       id="projects"
       ref={targetRef}
-      className="sm:container md:relative md:h-[300svh]"
+      className="md:relative md:h-[300svh]"
     >
       <div className="md:sticky md:inset-0 md:flex md:h-svh md:items-center md:overflow-hidden">
-        <MotionDiv
-          style={mediaMatches ? { x, y: '-40px' } : {}}
-          className="flex flex-col gap-8 md:flex-row"
-        >
-          {dataProjects.map(
-            ({ image, title, description, linkToGithub, linkToProject }) => (
-              <div
-                key={title}
-                className="h-fit flex-shrink-0 space-y-5 rounded-xl border-none sm:border sm:border-solid sm:border-neutral-500 md:h-fit md:w-[450px]"
-              >
-                {/* Card */}
-                <div className="relative m-5 h-52 overflow-hidden rounded-xl">
-                  <Image
-                    src={image}
-                    alt={description}
-                    fill
-                    className="object-cover"
-                    sizes="100vh"
-                  />
-                </div>
-                <div className="flex h-fit flex-col justify-between gap-5 overflow-hidden px-5 pb-5 sm:h-52">
-                  <div className="space-y-1">
-                    <h2 className="font-serif text-2xl xl:text-3xl">{title}</h2>
-                    <p className="font-sans text-base">{description}</p>
+        <GridBackground>
+          <MotionDiv
+            style={mediaMatches ? { x, y: '-40px' } : {}}
+            className="flex flex-col gap-8 sm:container md:flex-row"
+          >
+            {dataProjects.map(
+              ({ image, title, description, linkToGithub, linkToProject }) => (
+                <div
+                  key={title}
+                  className="h-fit flex-shrink-0 space-y-5 rounded-xl border-none sm:border sm:border-solid sm:border-neutral-500 md:h-fit md:w-[450px]"
+                >
+                  {/* Card */}
+                  <div className="relative m-5 h-52 overflow-hidden rounded-xl">
+                    <Image
+                      src={image}
+                      alt={description}
+                      fill
+                      className="object-cover"
+                      sizes="100vh"
+                    />
                   </div>
-                  <div className="flex gap-5">
-                    <Link
-                      target="_blank"
-                      referrerPolicy="no-referrer"
-                      href={linkToProject}
-                      className={buttonVariants({
-                        className: 'flex-grow uppercase'
-                      })}
-                      onMouseOver={() => {
-                        setIsHoveredCursor(true)
-                      }}
-                      onMouseLeave={() => {
-                        setIsHoveredCursor(false)
-                      }}
-                    >
-                      Projeto
-                    </Link>
-                    <Link
-                      target="_blank"
-                      referrerPolicy="no-referrer"
-                      href={linkToGithub}
-                      className={buttonVariants({ variant: 'secondary' })}
-                      onMouseOver={() => {
-                        setIsHoveredCursor(true)
-                      }}
-                      onMouseLeave={() => {
-                        setIsHoveredCursor(false)
-                      }}
-                    >
-                      Código
-                    </Link>
+                  <div className="flex h-fit flex-col justify-between gap-5 overflow-hidden px-5 pb-5 sm:h-52">
+                    <div className="space-y-1">
+                      <h2 className="text-gradient-title font-serif text-2xl xl:text-3xl">
+                        {title}
+                      </h2>
+                      <p className="text-gradient relative font-medium">
+                        {description}
+                      </p>
+                      {/* <p className="font-sans text-base"></p> */}
+                    </div>
+                    <div className="flex gap-5">
+                      <Link
+                        target="_blank"
+                        referrerPolicy="no-referrer"
+                        href={linkToProject}
+                        className={buttonVariants({
+                          className: 'flex-grow uppercase'
+                        })}
+                        onMouseOver={() => {
+                          setIsHoveredCursor(true)
+                        }}
+                        onMouseLeave={() => {
+                          setIsHoveredCursor(false)
+                        }}
+                      >
+                        Projeto
+                      </Link>
+                      <Link
+                        target="_blank"
+                        referrerPolicy="no-referrer"
+                        href={linkToGithub}
+                        className={buttonVariants({ variant: 'secondary' })}
+                        onMouseOver={() => {
+                          setIsHoveredCursor(true)
+                        }}
+                        onMouseLeave={() => {
+                          setIsHoveredCursor(false)
+                        }}
+                      >
+                        Código
+                      </Link>
+                    </div>
                   </div>
                 </div>
-              </div>
-            )
-          )}
-        </MotionDiv>
+              )
+            )}
+          </MotionDiv>
+        </GridBackground>
       </div>
     </section>
   )

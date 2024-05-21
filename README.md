@@ -1,7 +1,11 @@
 # Portfolio :smiley:
+_hospedado na vercel_ [Portfólio](portfolio-jheanantunes-projects.vercel.app)
+
 "Olá a todos! Espero que estejam bem. Meu portfólio foi inspirado em diversos elementos: o site Awwwards, repositório de componentes e blog de animação. O processo de criação foi dividido em etapas. Primeiramente, defini o que desejava alcançar com o projeto. Em seguida, criei o wireframe no Figma. Por fim, comecei a codificar.
 
 Admito que, devido ao início do meu trabalho na pizzaria, minha rotina ficou um pouco tumultuada e talvez não tenha me dedicado tanto quanto gostaria ao projeto. No entanto, estou satisfeito com o resultado final. Acredito que consegui criar algo significativo, apesar dos desafios."
+
+Portfolio
 ## contribuições
 - [Shadcn-ui](https://ui.shadcn.com/)
 - [aceternity](https://ui.aceternity.com/)

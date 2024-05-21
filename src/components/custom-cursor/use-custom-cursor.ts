@@ -33,6 +33,7 @@ const useCustomCursor = () => {
     return () => {
       window.removeEventListener('mousemove', handleMouseMove)
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [x, y, isHoveredCursor])
 
   return { x: xSpring, y: ySpring, sizeCursor }
